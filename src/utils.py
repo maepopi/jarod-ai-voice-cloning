@@ -1404,16 +1404,16 @@ def generate_tortoise(**kwargs):
 			with open(rvc_out_path, 'rb') as file:
 				content = file.read()
 
-		# Write the contents to output_voices[0], effectively replacing its contents
-		with open(output_voices[0], 'wb') as file:
-			file.write(content)
-		
+			# Write the contents to output_voices[0], effectively replacing its contents
+			with open(output_voice, 'wb') as file:
+				file.write(content)
+			
 
-		# Update the file name to include RVC model - renaming after to avoid conflicting with earlier pull request
-		rvc_model_name = os.path.splitext(os.path.basename(rvc_model_path))[0]
-		new_output_path = f"{output_voices[0].replace('.wav', '')}_RVCmodel-{rvc_model_name}.wav"
-		os.rename(output_voices[0], new_output_path)
-		output_voices[0] = new_output_path
+			# Update the file name to include RVC model - renaming after to avoid conflicting with earlier pull request
+			rvc_model_name = os.path.splitext(os.path.basename(rvc_model_path))[0]
+			new_output_path = f"{output_voice.replace('.wav', '')}_RVCmodel-{rvc_model_name}.wav"
+			os.rename(output_voice, new_output_path)
+			output_voices[i] = new_output_path
 
 
 	print(f"Generation took {info['time']} seconds, saved to '{output_voices[0]}'\n")
