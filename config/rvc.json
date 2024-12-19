@@ -1,22 +1,10 @@
-<<<<<<< HEAD
 {
-	"rvc_model": "azasu.pth",
-	"f0_up_key": 12,
-	"file_index": "",
+	"rvc_model": "regis_only_48k.pth",
+	"f0_up_key": -2,
+	"file_index": "added_IVF3200_Flat_nprobe_1_regis_only_48k_v2.index",
 	"index_rate": 0,
 	"filter_radius": 3,
 	"resample_sr": 48000,
 	"rms_mix_rate": 0.25,
 	"protect": 0.33
-=======
-{
-	"rvc_model": "emiel_french_48_e200_s16400.pth",
-	"f0_up_key": 0,
-	"file_index": "added_IVF1330_Flat_nprobe_1_emiel_french_48_v2.index",
-	"index_rate": 0,
-	"filter_radius": 3,
-	"resample_sr": 48000,
-	"rms_mix_rate": 0.25,
-	"protect": 0.33
->>>>>>> 30393d7 (Readded extra parameters in result name)
 }
