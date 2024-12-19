@@ -1153,11 +1153,17 @@ def generate_tortoise(**kwargs):
 		
 		if parameters['seed'] is not None:
 			name = f"{name}_seed-{parameters['seed']}"
+<<<<<<< Updated upstream
 
 		if args.autoregressive_model is not None:
 			model_name = os.path.splitext(os.path.basename(args.autoregressive_model))[0]
 			name = f"{name}_TTSmodel-{model_name}"
 
+=======
+		if args.autoregressive_model is not None:
+			model_name = os.path.splitext(os.path.basename(args.autoregressive_model))[0]
+			name = f"{name}_TTSmodel-{model_name}"
+>>>>>>> Stashed changes
 		return name
 
 	def get_info( voice, settings = None, latents = True ):
@@ -1408,12 +1414,11 @@ def generate_tortoise(**kwargs):
 			with open(output_voice, 'wb') as file:
 				file.write(content)
 			
-
 			# Update the file name to include RVC model - renaming after to avoid conflicting with earlier pull request
 			rvc_model_name = os.path.splitext(os.path.basename(rvc_model_path))[0]
-			new_output_path = f"{output_voice.replace('.wav', '')}_RVCmodel-{rvc_model_name}.wav"
-			os.rename(output_voice, new_output_path)
-			output_voices[i] = new_output_path
+			new_output_path = f"{output_voices[0].replace('.wav', '')}_RVCmodel-{rvc_model_name}.wav"
+			os.rename(output_voices[0], new_output_path)
+			output_voices[0] = new_output_path
 
 
 	print(f"Generation took {info['time']} seconds, saved to '{output_voices[0]}'\n")

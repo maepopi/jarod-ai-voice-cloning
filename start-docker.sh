@@ -5,10 +5,16 @@ docker run \
     --rm \
     --gpus all \
     --name ai-voice-cloning \
+<<<<<<< Updated upstream
     -v "${PWD}/src:/home/user/ai-voice-cloning/src" \
     -v "/home/maelys/AI_PROJECTS/SOUND/TOOLS/MRQ/ai-voice-cloning/models:/home/user/ai-voice-cloning/models" \
     -v "/home/maelys/AI_PROJECTS/SOUND/TOOLS/MRQ/ai-voice-cloning/training:/home/user/ai-voice-cloning/training" \
     -v "/home/maelys/AI_PROJECTS/SOUND/TOOLS/MRQ/ai-voice-cloning/voices:/home/user/ai-voice-cloning/voices" \
+=======
+    -v "/home/maelys/AI_PROJECTS/SOUND/TOOLS/Jarod_MRQ/ai-voice-cloning/models:/home/user/ai-voice-cloning/models" \
+    -v "/home/maelys/AI_PROJECTS/SOUND/TOOLS/Jarod_MRQ/ai-voice-cloning/training:/home/user/ai-voice-cloning/training" \
+    -v "/home/maelys/AI_PROJECTS/SOUND/TOOLS/Jarod_MRQ/ai-voice-cloning/voices:/home/user/ai-voice-cloning/voices" \
+>>>>>>> Stashed changes
     -v "${PWD}/bin:/home/user/ai-voice-cloning/bin" \
     -v "${PWD}/config:/home/user/ai-voice-cloning/config" \
     -v "/home/maelys/AI_PROJECTS/SOUND/TOOLS/Jarod_MRQ/ai-voice-cloning/results:/home/user/ai-voice-cloning/results" \
