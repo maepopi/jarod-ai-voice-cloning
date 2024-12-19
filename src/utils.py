@@ -1153,17 +1153,11 @@ def generate_tortoise(**kwargs):
 		
 		if parameters['seed'] is not None:
 			name = f"{name}_seed-{parameters['seed']}"
-<<<<<<< Updated upstream
 
 		if args.autoregressive_model is not None:
 			model_name = os.path.splitext(os.path.basename(args.autoregressive_model))[0]
 			name = f"{name}_TTSmodel-{model_name}"
 
-=======
-		if args.autoregressive_model is not None:
-			model_name = os.path.splitext(os.path.basename(args.autoregressive_model))[0]
-			name = f"{name}_TTSmodel-{model_name}"
->>>>>>> Stashed changes
 		return name
 
 	def get_info( voice, settings = None, latents = True ):
