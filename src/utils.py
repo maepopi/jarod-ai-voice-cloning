@@ -1383,6 +1383,7 @@ def generate_tortoise(**kwargs):
 	if args.use_rvc:
 		rvc_settings = load_rvc_settings()
 		rvc_model_path = os.path.join("models", "rvc_models", rvc_settings['rvc_model'])
+		rvc_model_name = os.path.splitext(os.path.basename(rvc_model_path))[0]
 		rvc_index_path = os.path.join("models", "rvc_models", rvc_settings['file_index'])
 		print (rvc_model_path)
 
@@ -1406,13 +1407,12 @@ def generate_tortoise(**kwargs):
 				file.write(content)
 			
 			# Update the file name to include RVC model - renaming after to avoid conflicting with earlier pull request
-			rvc_model_name = os.path.splitext(os.path.basename(rvc_model_path))[0]
-			new_output_path = f"{output_voices[0].replace('.wav', '')}_RVCmodel-{rvc_model_name}.wav"
-			os.rename(output_voices[0], new_output_path)
-			output_voices[0] = new_output_path
+			new_output_path = f"{output_voice.replace('.wav', '')}_RVCmodel-{rvc_model_name}.wav"
+			os.rename(output_voice, new_output_path)
+			output_voices[i] = new_output_path
 
 
-	print(f"Generation took {info['time']} seconds, saved to '{output_voices[0]}'\n")
+	print(f"Generation took {info['time']} seconds, saved to '{output_voices[i]}'\n")
 
 	info['seed'] = usedSeed
 	if 'latents' in info:
