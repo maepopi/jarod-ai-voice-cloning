@@ -1141,13 +1141,23 @@ def generate_tortoise(**kwargs):
 	idx = pad(idx, 4)
 
 	def get_name(line=0, candidate=0, combined=False):
+		
 		name = f"{idx}"
+
 		if combined:
 			name = f"{name}_combined"
 		elif len(texts) > 1:
 			name = f"{name}_{line}"
 		if parameters['candidates'] > 1:
 			name = f"{name}_{candidate}"
+		
+		if parameters['seed'] is not None:
+			name = f"{name}_seed-{parameters['seed']}"
+
+		if args.autoregressive_model is not None:
+			model_name = os.path.splitext(os.path.basename(args.autoregressive_model))[0]
+			name = f"{name}_TTSmodel-{model_name}"
+
 		return name
 
 	def get_info( voice, settings = None, latents = True ):
@@ -1394,9 +1404,16 @@ def generate_tortoise(**kwargs):
 			with open(rvc_out_path, 'rb') as file:
 				content = file.read()
 
-			# Write the contents to output_voices[0], effectively replacing its contents
-			with open(output_voice, 'wb') as file:
-				file.write(content)
+		# Write the contents to output_voices[0], effectively replacing its contents
+		with open(output_voices[0], 'wb') as file:
+			file.write(content)
+		
+
+		# Update the file name to include RVC model - renaming after to avoid conflicting with earlier pull request
+		rvc_model_name = os.path.splitext(os.path.basename(rvc_model_path))[0]
+		new_output_path = f"{output_voices[0].replace('.wav', '')}_RVCmodel-{rvc_model_name}.wav"
+		os.rename(output_voices[0], new_output_path)
+		output_voices[0] = new_output_path
 
 
 	print(f"Generation took {info['time']} seconds, saved to '{output_voices[0]}'\n")
