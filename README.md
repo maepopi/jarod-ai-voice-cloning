@@ -1,5 +1,7 @@
 # AI Voice Cloning
 
+> **Archive:** It's been awhile coming, but I don't have any further plans to maintain this repo (Tortoise TTS) so I will be archiving it.  Doesn't mean it's getting deleted, just won't be active anymore.  There are better alternatives out there that work just as well or better than Tortoise: XTTS, GPT-SoVITS, F5TTS, StyleTTS2, Zonos, etc.
+
 > **Note** I do not plan on actively working on improvements/enhancements for this project, this is mainly meant to keep the repo in a working state in the case the original git.ecker goes down or necessary package changes need to be made.
 
 That being said, some enhancements added compared to the original repo:
